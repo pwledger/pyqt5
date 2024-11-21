@@ -26,32 +26,8 @@ class WindowClass(QMainWindow, form_class) :
     def menu(self):
         for i in range(5):
             self.price = 0
-            rice = random.choice(list(self.밥.keys()))
-            item = QTableWidgetItem(rice)
-            self.tableWidget.setItem(0,i,item)
-
-            soup = random.choice(list(self.국.keys()))
-            item = QTableWidgetItem(soup)
-            self.tableWidget.setItem(1, i, item)
-
-            반1 = random.choice(list(self.반찬1.keys()))
-            item = QTableWidgetItem(반1)
-            self.tableWidget.setItem(2, i, item)
-
-            반2 = random.choice(list(self.반찬2.keys()))
-            item = QTableWidgetItem(반2)
-            self.tableWidget.setItem(3, i, item)
-
-            반3 = random.choice(list(self.반찬3.keys()))
-            item = QTableWidgetItem(반3)
-            self.tableWidget.setItem(4, i, item)
-
-            기 = random.choice(list(self.기타.keys()))
-            item = QTableWidgetItem(기)
-            self.tableWidget.setItem(5, i, item)
-
-
-            self.price += self.밥[rice] + self.국[soup] + self.반찬1[반1] + self.반찬2[반2]  + self.반찬3[반3] + self.기타[기]
+            for j ,e in enumerate([self.밥 , self.국 ,self.반찬1 ,self.반찬2 ,  self.반찬3 , self.기타]):
+                self.price += self.choice(e,j,i)
 
             item1 = QTableWidgetItem(str( self.price))
             self.tableWidget.setItem(6, i, item1)
